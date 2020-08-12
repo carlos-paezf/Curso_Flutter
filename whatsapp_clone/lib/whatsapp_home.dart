@@ -18,15 +18,23 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(length: 4, vsync: this);
+    _tabController = new TabController(length: 4, vsync: this, initialIndex: 1);
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 10,
         title: Text(widget.title),
-        backgroundColor: Colors.teal[900],
+        backgroundColor: Colors.black,
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search), onPressed: (){},),
+          IconButton(icon: Icon(Icons.more_vert), onPressed: (){},)
+        ],
         bottom: new TabBar(
+          indicatorSize: TabBarIndicatorSize.tab,
+          indicatorColor: Colors.white,
+          indicatorWeight: 3.0,
           isScrollable: true,
           labelPadding: EdgeInsets.symmetric(horizontal: 27.0),
           tabs: <Widget>[
@@ -61,6 +69,11 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           new Llamadas()
         ],
         controller: _tabController,
+      ),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: (){},
+        backgroundColor: Colors.black,
+        child: new Icon(Icons.sms)
       ),
     );
   }
