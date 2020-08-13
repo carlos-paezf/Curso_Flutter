@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:whatsapp_clone/models/chat_model.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -36,33 +37,55 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   Widget _buildTextComposer() {
     return new Container(
-      padding: EdgeInsets.only(left: 15.0),
+      padding: EdgeInsets.only(left: 8.0),
       child: new Row(
         children: <Widget>[
           new Flexible(
             child: new TextField(
+              autofocus: true,
               controller: _textEditingController,
               onChanged: (String message) {
                 setState(() {
                   _isTyped = message.length > 0;
                 });
               },
-              decoration: InputDecoration.collapsed(hintText: 'Enviar mensaje'),
+              decoration: InputDecoration(
+                hintText: 'Escribe un mensaje',
+                border: new OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(30.0),
+                  ),
+                ),
+                filled:false,
+                hintStyle: TextStyle(color: Colors.grey[800], fontSize: 18.0),
+                fillColor: Colors.white70,
+                prefixIcon: Icon(Icons.tag_faces, size: 30.0),
+                suffixIcon: Icon(Icons.camera_alt, size: 25.0,),
+                contentPadding: EdgeInsets.all(15),
+              ),
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.send,
+              textCapitalization: TextCapitalization.sentences,
+              cursorColor: Colors.green,
+              cursorWidth: 2.0,
+              mouseCursor: MouseCursor.defer,
+              maxLines: 1,
             ),
           ),
           new Container(
+            padding: EdgeInsets.only(left: 5.0, right: 5.0),
             child: ClipOval(
               child: Material(
                 color: Colors.black, // button color
                 child: InkWell(
                   splashColor: Colors.green, // inkwell color
                   child: SizedBox(
-                    width: 45,
-                    height: 45,
+                    width: 50,
+                    height: 50,
                     child: Icon(
                       Icons.send,
                       color: Colors.white,
-                      size: 20.0,
+                      size: 25.0,
                     ),
                   ),
                   onTap: _isTyped

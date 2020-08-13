@@ -3,6 +3,7 @@ import 'package:whatsapp_clone/pages/camara.dart';
 import 'package:whatsapp_clone/pages/chats.dart';
 import 'package:whatsapp_clone/pages/estados.dart';
 import 'package:whatsapp_clone/pages/llamadas.dart';
+import 'package:whatsapp_clone/pages/contactos.dart';
 
 class WhatsAppHome extends StatefulWidget {
   WhatsAppHome({Key key, this.title}) : super(key: key);
@@ -20,6 +21,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
     super.initState();
     _tabController = new TabController(length: 4, vsync: this, initialIndex: 1);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +30,14 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         title: Text(widget.title),
         backgroundColor: Colors.black,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: (){},),
-          IconButton(icon: Icon(Icons.more_vert), onPressed: (){},)
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {},
+          )
         ],
         bottom: new TabBar(
           indicatorSize: TabBarIndicatorSize.tab,
@@ -38,7 +46,12 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           isScrollable: true,
           labelPadding: EdgeInsets.symmetric(horizontal: 27.0),
           tabs: <Widget>[
-            new Tab(icon: Icon(Icons.camera_alt, size: 20.0,),),
+            new Tab(
+              icon: Icon(
+                Icons.camera_alt,
+                size: 20.0,
+              ),
+            ),
             new Tab(
               child: Text(
                 'CHATS',
@@ -71,10 +84,13 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         controller: _tabController,
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: (){},
-        backgroundColor: Colors.black,
-        child: new Icon(Icons.sms)
-      ),
+          onPressed: () {
+            var route = new MaterialPageRoute(
+                builder: (BuildContext context) => new Contacts());
+            Navigator.of(context).push(route);
+          },
+          backgroundColor: Colors.black,
+          child: new Icon(Icons.sms)),
     );
   }
 }
