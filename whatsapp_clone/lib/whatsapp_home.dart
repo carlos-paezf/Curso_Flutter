@@ -42,19 +42,19 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
             new Tab(
               child: Text(
                 'CHATS',
-                style: TextStyle(fontSize: 12.0),
+                style: TextStyle(fontSize: 15.5),
               ),
             ),
             new Tab(
               child: Text(
                 'ESTADOS',
-                style: TextStyle(fontSize: 12.0),
+                style: TextStyle(fontSize: 15.5),
               ),
             ),
             new Tab(
               child: Text(
                 'LLAMADAS',
-                style: TextStyle(fontSize: 12.0),
+                style: TextStyle(fontSize: 15.5),
               ),
             ),
           ],
