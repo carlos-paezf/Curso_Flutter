@@ -47,7 +47,28 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       //! Menú lateral
-      drawer: new Drawer(),
+      drawer: new Drawer(
+        child: new ListView(children: <Widget>[
+          //? Encabezado de la lista
+          new DrawerHeader(child: Material()),
+          //? Listado de opciones
+          new ListTile(
+              title: Text('Cine', style: TextStyle(fontSize: 17)),
+              trailing: new Icon(Icons.local_movies, color: Colors.white)),
+          new Divider(height: 5.0),
+          new ListTile(
+              title: Text('Televisión', style: TextStyle(fontSize: 17)),
+              trailing: new Icon(Icons.tv, color: Colors.white)),
+          new Divider(height: 5.0),
+          new ListTile(
+              title: Text('Salir', style: TextStyle(fontSize: 17)),
+              trailing: new Icon(Icons.exit_to_app, color: Colors.white),
+              onTap: () => Navigator.of(context).pop()),
+          new Divider(
+            height: 5.0,
+          ),
+        ]),
+      ),
       //! Cuerpo de la aplicación
       body: Center(
         child: Column(
@@ -64,11 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
   List<BottomNavigationBarItem> _getFooterItems() {
     return [
       new BottomNavigationBarItem(
-          icon: Icon(Icons.play_circle_outline), title: Text('Populares')),
+          icon: Icon(Icons.play_circle_outline, color: Colors.white),
+          title: Text('Populares', style: TextStyle(color: Colors.white))),
       new BottomNavigationBarItem(
-          icon: Icon(Icons.update), title: Text('Próximamente')),
+          icon: Icon(Icons.update, color: Colors.white),
+          title: Text('Próximamente', style: TextStyle(color: Colors.white))),
       new BottomNavigationBarItem(
-          icon: Icon(Icons.star_border), title: Text('Mejor Ranking')),
+          icon: Icon(Icons.star_border, color: Colors.white),
+          title: Text('Mejor Ranking', style: TextStyle(color: Colors.white))),
     ];
   }
 }
