@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'media_list.dart';
 
 class MyHomePage extends StatefulWidget {
   //! Constructor
@@ -12,7 +13,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   //! Variables
-  //* Sobrescritura del método
+
+  //! Sobrescritura del método
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,11 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
       ),
       //! Cuerpo de la aplicación
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+      body: PageView(
+        children: <Widget>[
+          new MediaList()
+        ]
       ),
       //! Pestañas en la parte inferior de la aplicación
       bottomNavigationBar: BottomNavigationBar(items: _getFooterItems()),
