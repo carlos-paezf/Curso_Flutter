@@ -12,6 +12,8 @@ class Media {
 
   //! Método para obtener las imagenes
   String getPosterUrl() => getMediumPictureUrl(posterPath);
+  String getBackDropUrl() => getLargePictureUrl(backdropPath);
+  String getGenres() => getGenreValues(genreIds);
 
   //! Constructor de tipo factory
   factory Media(Map jsonMap){

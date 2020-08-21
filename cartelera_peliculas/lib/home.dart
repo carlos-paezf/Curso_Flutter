@@ -1,3 +1,4 @@
+import 'package:cartelera_peliculas/common/HttpHandler.dart';
 import 'package:flutter/material.dart';
 import 'media_list.dart';
 
@@ -13,6 +14,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   //! Variables
+
+  //! Sobrescritura del método initState para prueba de obtención
+  /*
+  @override
+  void initState(){
+    _loadJson();
+    super.initState();
+  }
+  _loadJson() async {
+    String data = await HttpHandler().fectMovies();
+    print(data);
+  }
+  */
 
   //! Sobrescritura del método
   @override
@@ -74,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //! Cuerpo de la aplicación
       body: PageView(
         children: <Widget>[
+          //* Lista de peliculas 
           new MediaList()
         ]
       ),

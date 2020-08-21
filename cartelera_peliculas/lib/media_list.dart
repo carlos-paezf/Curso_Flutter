@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'common/HttpHandler.dart';
 import 'model/Media.dart';
+import 'media_list_item.dart';
 
 class MediaList extends StatefulWidget {
   MediaList({Key key}) : super(key: key);
@@ -19,6 +20,7 @@ class _MediaListState extends State<MediaList> {
     super.initState();
   }
 
+  //? Función para rescatar los elementos de la lista
   void loadMovies() async {
     var movies = await HttpHandler().fetchMovies();
     setState(() {
@@ -32,11 +34,7 @@ class _MediaListState extends State<MediaList> {
       child: new ListView.builder(
         itemCount: _media.length,
         itemBuilder: (BuildContext context, int index) {
-          return new Column(
-            children: <Widget>[
-              new Image.network(_media[index].getPosterUrl())
-            ],
-          );
+          return MediaListItem();
         },
       ),
     );

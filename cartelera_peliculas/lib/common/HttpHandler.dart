@@ -8,7 +8,7 @@ import '../model/Media.dart';
 class HttpHandler {
   //! Propiedades
   final String _baseURL = 'api.themoviedb.org';
-  final String _lenguaje = 'es-ES';
+  final String _lenguaje = 'en-US';
 
   //! Método principal para:
   //* - Hacer la llamada a Http.
@@ -19,6 +19,19 @@ class HttpHandler {
     return json.decode(response.body);
   }
 
+  //! Prueba para retornar un string
+  /*
+  Future<String> fectMovies(){
+    var uri = new Uri.https(_baseURL, '3/movies/popular', {
+      'api_key': API_KEY,
+      'page': '3',
+      'language': _lenguaje,
+    });
+    return getJson(uri).then((data) => data.toString());
+  }
+  */
+
+  //! Renderizando el Json en forma de lista
   Future<List<Media>> fetchMovies() {
     var uri = new Uri.https(_baseURL, '3/movies/popular', {
       'api_key': API_KEY,
