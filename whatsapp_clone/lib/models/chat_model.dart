@@ -1,12 +1,16 @@
+//! Clase para definir los atributos del Chat
 class ChatModel {
+  //? Variables
   final String name;
   String message;
   final String time;
   final String imagenURL;
 
+  //? Constructor
   ChatModel({this.name, this.message, this.time, this.imagenURL});
 }
 
+//! Lista de Chats
 List<ChatModel> messageData = [
   new ChatModel(
     name: 'David Ferrer',

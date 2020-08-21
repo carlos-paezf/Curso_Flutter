@@ -12,13 +12,15 @@ class WhatsAppHome extends StatefulWidget {
   _WhatsAppHomeState createState() => _WhatsAppHomeState();
 }
 
+//! Pantalla principal de la aplicacion
 class _WhatsAppHomeState extends State<WhatsAppHome>
     with SingleTickerProviderStateMixin {
-  //Controllador para los Tabs
+  //! Controllador para los Tabs
   TabController _tabController;
   @override
   void initState() {
     super.initState();
+    //! Indicar con cual tab iniciar de manera predefinida
     _tabController = new TabController(length: 4, vsync: this, initialIndex: 1);
   }
 
@@ -29,6 +31,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         elevation: 10,
         title: Text(widget.title),
         backgroundColor: Colors.black,
+        //! Lista de botones
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -39,6 +42,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
             onPressed: () {},
           )
         ],
+        //! Tabs del encabezado
         bottom: new TabBar(
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Colors.white,
@@ -75,6 +79,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         ),
       ),
       body: new TabBarView(
+        //! Pantallas degun el tab
         children: <Widget>[
           new Camara(),
           new Chats(),
@@ -83,6 +88,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         ],
         controller: _tabController,
       ),
+      //! Boton glotante en la parte inferior
       floatingActionButton: new FloatingActionButton(
           onPressed: () {
             var route = new MaterialPageRoute(

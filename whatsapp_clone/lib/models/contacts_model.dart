@@ -1,11 +1,15 @@
+//! Clase para definir los contactos y sus caracteristicas
 class ContactModel {
+  //? Atributos
   final String name;
   String status;
   final String imagenURL;
 
+  //? Constructor
   ContactModel({this.name, this.status, this.imagenURL});
 }
 
+//! Lista de contactos
 List<ContactModel> contactData = [
   new ContactModel(
     name: 'David Ferrer',

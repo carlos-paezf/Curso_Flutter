@@ -9,6 +9,7 @@ class Estados extends StatefulWidget {
   _EstadosState createState() => _EstadosState();
 }
 
+//! Estados de los contactos
 class _EstadosState extends State<Estados> {
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class _EstadosState extends State<Estados> {
             ),
             subtitle: Text(statusdata[0].time),
           ),
+          //! Separacion entre mi estado y los recientes
           new Container(
               padding: EdgeInsets.only(top: 2.0, left: 15.0),
               child: Text('Recientes')),
@@ -42,6 +44,7 @@ class _EstadosState extends State<Estados> {
             ),
             subtitle: Text(statusdata[1].time),
           ),
+          //! Separacion entre los recientes y los ya vistos
           new Container(
               padding: EdgeInsets.only(top: 2.0, left: 15.0),
               child: Text('Vistos')),

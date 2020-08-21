@@ -9,6 +9,7 @@ class Contacts extends StatefulWidget {
   _ContactsState createState() => _ContactsState();
 }
 
+//! Lista de Total de Contactos en telefono
 class _ContactsState extends State<Contacts> {
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class _ContactsState extends State<Contacts> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            //? Cabecera de menu y cantidad de contactos
             Text(
               'Contactos',
             ),
@@ -32,6 +34,7 @@ class _ContactsState extends State<Contacts> {
             ),
           ],
         ),
+        //? Buscar Contactos y mas Opciones
         backgroundColor: Colors.black,
         actions: <Widget>[
           IconButton(

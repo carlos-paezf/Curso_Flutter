@@ -1,13 +1,17 @@
 import 'package:whatsapp_clone/models/chat_model.dart';
 
+//! Clase para definir los atributos de los estados
 class StatusModel {
+  //? Atributos
   final String name;
   final String time;
   final String imageURL;
 
+  //? Constructor
   StatusModel({this.name,this.time, this.imageURL});
 }
 
+//! Lista de estados 
 List<StatusModel> statusdata = [
   new StatusModel(
     name: 'Mi estado', 
